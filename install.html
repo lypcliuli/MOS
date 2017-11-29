@@ -1,20 +1,55 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta name = "viewport" content = "initial-scale = 0.8"> 
-<title>
-</title>
-     
-</head>
-<body>
- <table style="width: 294px; height: 248px">
- <img style="position:absolute; top:100px; left:30px;display:block;" src="icon.png" onclick="install();" />
- <span style="float:left;"> 点击下载xx </span>
-</table>
-</body>
-<script language='JavaScript'>
-       install = function() 
-       {
-            location.href = 'itms-services://?action=download-manifest&url=https://github.com/lypcliuli/MOS/blob/master/mos.plist';
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+    <title>贵州工业</title>
+    <style type="text/css">
+        .installBody{
+            text-align: center;
+            margin-top: 300px;
+            font-size: 3rem;
+        }
+    </style>
+    <script>
+        function load()
+        {
+            function myBrowser(){
+                var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+                var isOpera = userAgent.indexOf("Opera") > -1;
+                if (isOpera) {
+                    return "Opera"
+                }; //判断是否Opera浏览器
+                if (userAgent.indexOf("Firefox") > -1) {
+                    return "FF";
+                } //判断是否Firefox浏览器
+                if (userAgent.indexOf("Chrome") > -1){
+                    return "Chrome";
+                }
+                if (userAgent.indexOf("Safari") > -1) {
+                    return "Safari";
+                } //判断是否Safari浏览器
+                if (userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera) {
+                    return "IE";
+                }; //判断是否IE浏览器
+            }
+            //以下是调用上面的函数
+            var mb = myBrowser();
+            if ("Safari" != mb) {
+                alert("请使用Safari打开此页面");
+            }
+            window.location.href="itms-services:///?action=download-manifest&url=https://git.oschina.net/LYPC/mos/raw/master/IBDPGZ.plist";
         }
     </script>
+</head>
+<body onload="load()">
+<div class="installBody">
+    <p >
+        请点击右上角，选择Safari打开此页面。<br/>
+        <br/>
+        点击安装后，回到桌面查看安装进度。
+    </p>
+</div>
+</body></body>
+</html>
